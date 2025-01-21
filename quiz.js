@@ -4,20 +4,22 @@ function checkAnswer() {
     const correctAnswer = "4";
 
     // Retrieve the user's selected answer
-    const userAnswer = document.querySelector('input[name="quiz"]:checked');
+    const selectedAnswer = document.querySelector('input[name="quiz"]:checked');
+    // 
+    const userAnswer = selectedAnswer.value;
 
     // Get the feedback element
     const feedbackElement = document.getElementById("feedback");
 
     // Check if an answer is selected
-    if (!userAnswer) {
+    if (!selectedAnswer) {
         feedbackElement.textContent = "Please select an answer.";
         feedbackElement.style.color = "orange";
         return;
     }
 
     // Compare the user's answer to the correct answer
-    if (userAnswer.value === correctAnswer) {
+    if (userAnswer === correctAnswer) {
         feedbackElement.textContent = "Correct! Well done.";
         feedbackElement.style.color = "green";
     } else {
